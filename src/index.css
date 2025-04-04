@@ -2,14 +2,11 @@
 
 @theme {
   /* Fuentes */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+  --font-sans: "Montserrat", sans-serif;
 
   /* Colores de fondo - Tema oscuro gamer */
   --color-bg-dark: oklch(0.12 0.002 255); /* Fondo principal oscuro */
-  --color-bg-card: oklch(0.18 0.003 270); /* Fondo de tarjetas/componentes */
+  --color-bg-card: oklch(0.22 0.003 270); /* Fondo de tarjetas/componentes */
   --color-bg-hover: oklch(0.22 0.003 280); /* Fondo al hacer hover */
 
   /* Colores de texto */

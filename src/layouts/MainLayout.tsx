@@ -7,8 +7,8 @@ type Props = {
 
 export const MainLayout = ({ children }: Props) => {
   return (
-    <article>
-      <h1>Games Vault</h1>
+    <article className="w-full min-h-screen bg-bg-dark text-white font-sans flex flex-col items-center gap-5">
+      <h1 className="text-center pt-2 font-bold text-2xl">Games Vault</h1>
       <Navbar />
       <main>{children}</main>
     </article>
