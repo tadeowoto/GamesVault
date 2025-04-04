@@ -10,7 +10,7 @@ export const MainLayout = ({ children }: Props) => {
     <article className="w-full min-h-screen bg-bg-dark text-white font-sans flex flex-col items-center gap-5">
       <h1 className="text-center pt-2 font-bold text-2xl">Games Vault</h1>
       <Navbar />
-      <main>{children}</main>
+      <main className="w-full h-full">{children}</main>
     </article>
   );
 };
