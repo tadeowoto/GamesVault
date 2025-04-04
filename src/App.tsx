@@ -1,7 +1,12 @@
-import "./App.css";
+import { MainLayout } from "./layouts/MainLayout";
+import GamesGridContainer from "./components/GamesGridContainer";
 
 function App() {
-  return <h1 className="">DDDDD</h1>;
+  return (
+    <MainLayout>
+      <GamesGridContainer />
+    </MainLayout>
+  );
 }
 
 export default App;

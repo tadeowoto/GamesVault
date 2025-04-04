@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+@theme {
+  /* Fuentes */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  /* Colores de fondo - Tema oscuro gamer */
+  --color-bg-dark: oklch(0.12 0.002 255); /* Fondo principal oscuro */
+  --color-bg-card: oklch(0.18 0.003 270); /* Fondo de tarjetas/componentes */
+  --color-bg-hover: oklch(0.22 0.003 280); /* Fondo al hacer hover */
+
+  /* Colores de texto */
+  --color-text-primary: oklch(0.85 0.003 310); /* Texto principal */
+  --color-text-secondary: oklch(0.6 0.005 300); /* Texto secundario */
+
+  --color-accent: oklch(0.6 0.22 265); /* Acento principal */
+  --color-accent-hover: oklch(0.65 0.23 265); /* Acento hover */
+  --color-accent-muted: oklch(0.4 0.15 265); /* Acento apagado */
+
+  /* Estados */
+  --color-success: oklch(0.7 0.15 145); /* Verde para completado */
+  --color-warning: oklch(0.8 0.15 85); /* Amarillo para en progreso */
+  --color-error: oklch(0.7 0.18 25); /* Rojo para error/abandonado */
+}
