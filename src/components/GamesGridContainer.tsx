@@ -1,10 +1,13 @@
 import { GameCard } from "./GameCard";
+import { useContext } from "react";
+import { GameContext } from "../context/GamesContext";
 
 const GamesGridContainer = () => {
-  // TODO : EL TITULO DEBERIA CAMBIAR DEPENDIENDO EL CONTENIDO QUE SE MUESTRE
-  //POR EJEMPLO LATEST RELEASES, POPULAR GAMES, ETC
-  //TODO: HACER UN GAME TYPE
-  // DEBERIA HACER UN CONTEXTO???
+  const context = useContext(GameContext);
+
+  if (!context) {
+    throw new Error("GamesGridContainer must be used within a GameProvider");
+  }
 
   return (
     <article className="w-full h-full flex items-center justify-center ">
