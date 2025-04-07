@@ -20,7 +20,7 @@ const GamesGridContainer = () => {
             background_image={game.background_image}
             name={game.name}
             released={game.released}
-            status="por defecto"
+            status=""
             title={game.name}
             screenshots={game.screenshots}
             rating={game.rating}

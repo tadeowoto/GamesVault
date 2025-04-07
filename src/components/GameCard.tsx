@@ -3,7 +3,7 @@ type CardProps = {
   background_image: string;
   name: string;
   released: string;
-  status: string;
+  status?: string;
   title: string;
   screenshots: Screenshot[];
   rating: number;
@@ -34,9 +34,11 @@ export const GameCard = ({
           <span className="text-yellow-400">{rating}</span>
         </div>
       </div>
-      <div className="w-full h-1/8 flex items-center justify-center border-t mt-3 border-slate-400">
-        <p>{status}</p>
-      </div>
+      {status ? (
+        <div className="w-full h-1/8 flex items-center justify-center border-t mt-3 border-slate-400">
+          <p>{status}</p>
+        </div>
+      ) : null}
     </div>
   );
 };

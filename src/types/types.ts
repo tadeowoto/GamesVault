@@ -1,3 +1,5 @@
+type status = "completed" | "dropped" | "playing" | "wish";
+
 export type Screenshot = {
   id: number;
   image: string;
@@ -10,4 +12,5 @@ export type Game = {
   background_image: string;
   rating: number;
   screenshots: Screenshot[];
+  status?: status;
 };

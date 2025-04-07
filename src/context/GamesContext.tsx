@@ -4,6 +4,11 @@ import { Game } from "../types/types";
 
 interface GameContextType {
   mappedGames: Game[];
+  myGames: Game[];
+  completedGames: Game[];
+  droppedGames: Game[];
+  playingGames: Game[];
+  wishlistGames: Game[];
 }
 
 export const GameContext = createContext<GameContextType | undefined>(
@@ -11,7 +16,13 @@ export const GameContext = createContext<GameContextType | undefined>(
 );
 
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<Game[]>([]); // Add type annotation here
+  const [myGames] = useState<Game[]>([]);
+
+  const completedGames = myGames.filter((game) => game.status === "completed");
+  const droppedGames = myGames.filter((game) => game.status === "dropped");
+  const playingGames = myGames.filter((game) => game.status === "playing");
+  const wishlistGames = myGames.filter((game) => game.status === "wish");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +45,13 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     return newGame;
   });
 
-  const value = {
+  const value: GameContextType = {
     mappedGames,
+    myGames,
+    completedGames,
+    droppedGames,
+    playingGames,
+    wishlistGames,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
