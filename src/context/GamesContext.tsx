@@ -3,7 +3,7 @@ import { fetchGameApi } from "../services/fetchApi";
 import { Game } from "../types/types";
 
 interface GameContextType {
-  games: Game[];
+  mappedGames: Game[];
 }
 
 export const GameContext = createContext<GameContextType | undefined>(
@@ -22,8 +22,20 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     fetchData();
   }, []);
 
+  const mappedGames = games.map((game: Game) => {
+    const newGame = {
+      id: game.id,
+      background_image: game.background_image,
+      name: game.name,
+      released: game.released,
+      rating: game.rating,
+      screenshots: game.screenshots,
+    };
+    return newGame;
+  });
+
   const value = {
-    games,
+    mappedGames,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
