@@ -4,7 +4,7 @@ const Navbar = () => {
       <nav className="w-full h-8 bg-bg-card flex items-center justify-center rounded-xl">
         <ul className="flex gap-3">
           <li>List</li>
-          <li>Add game</li>
+          <li>Dashboard</li>
           <li>Reviews</li>
         </ul>
       </nav>

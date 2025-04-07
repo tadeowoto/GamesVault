@@ -12,7 +12,7 @@ const GamesGridContainer = () => {
   const { mappedGames } = context;
 
   return (
-    <article className="w-full h-full flex items-center justify-center ">
+    <article className="w-full h-full flex items-center justify-center">
       <div className="w-full h-fit p-10 grid grid-cols-1 gap-12 place-items-center bg-bg-card border-t border-gray-600 md:grid-cols-2">
         {mappedGames.map((game) => (
           <GameCard
@@ -23,6 +23,7 @@ const GamesGridContainer = () => {
             status="por defecto"
             title={game.name}
             screenshots={game.screenshots}
+            rating={game.rating}
           />
         ))}
       </div>
