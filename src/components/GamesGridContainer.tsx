@@ -9,6 +9,10 @@ const GamesGridContainer = () => {
     throw new Error("GamesGridContainer must be used within a GameProvider");
   }
 
+  const { games } = context;
+
+  console.log(games);
+
   return (
     <article className="w-full h-full flex items-center justify-center ">
       <div className="w-full h-fit p-10 grid grid-cols-1 gap-12 place-items-center bg-bg-card border-t border-gray-600 md:grid-cols-2">

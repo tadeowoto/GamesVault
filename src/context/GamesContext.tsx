@@ -1,7 +1,9 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
+import { fetchGameApi } from "../services/fetchApi";
+import { Game } from "../types/types";
 
 interface GameContextType {
-  a: number;
+  games: Game[];
 }
 
 export const GameContext = createContext<GameContextType | undefined>(
@@ -9,9 +11,20 @@ export const GameContext = createContext<GameContextType | undefined>(
 );
 
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const a = 2;
-  console.log(a);
+  const [games, setGames] = useState([]);
 
-  const value = { a };
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetchGameApi();
+      setGames(result);
+    };
+
+    fetchData();
+  }, []);
+
+  const value = {
+    games,
+  };
+
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
 };
