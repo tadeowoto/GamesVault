@@ -1,3 +1,5 @@
+import { GamesStatsDashoard } from "./GamesStatsDashoard";
+
 export const Dashboard = () => {
   //TODO AGREGAR ICONO DE AGREGAR AL BOTON
   //TODO COMPONETIZAR EL DASHBOARD
@@ -10,10 +12,10 @@ export const Dashboard = () => {
           Add new game
         </button>
       </header>
-      <article className="w-10/11 h-30 bg-accent-hover rounded-xl"></article>
-      <article className="w-10/11 h-30 bg-accent-hover rounded-xl"></article>
-      <article className="w-10/11 h-30 bg-accent-hover rounded-xl"></article>
-      <article className="w-10/11 h-30 bg-accent-hover rounded-xl"></article>
+      <GamesStatsDashoard title="Total de Juegos" />
+      <GamesStatsDashoard title="Juegos completados" />
+      <GamesStatsDashoard title="Jugando Actualmente" />
+      <GamesStatsDashoard title="Tiempo Total" />
     </div>
   );
 };
