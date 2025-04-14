@@ -18,7 +18,6 @@ export const GameContext = createContext<GameContextType | undefined>(
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [games, setGames] = useState<Game[]>([]); // Add type annotation here
   const [myGames] = useState<Game[]>([]);
-
   const completedGames = myGames.filter((game) => game.status === "completed");
   const droppedGames = myGames.filter((game) => game.status === "dropped");
   const playingGames = myGames.filter((game) => game.status === "playing");
