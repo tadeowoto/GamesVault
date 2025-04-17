@@ -1,14 +1,18 @@
 import { createContext, useState, useEffect } from "react";
 import { fetchGameApi } from "../services/fetchApi";
 import { Game } from "../types/types";
+import { MyGame } from "../types/types";
 
 interface GameContextType {
   mappedGames: Game[];
-  myGames: Game[];
-  completedGames: Game[];
-  droppedGames: Game[];
-  playingGames: Game[];
-  wishlistGames: Game[];
+  myGames: MyGame[];
+  completedGames: MyGame[];
+  droppedGames: MyGame[];
+  playingGames: MyGame[];
+  wishlistGames: MyGame[];
+  setMyGames: React.Dispatch<React.SetStateAction<MyGame[]>>;
+  hoursPlayed: number;
+  setHoursPlayed: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const GameContext = createContext<GameContextType | undefined>(
@@ -16,12 +20,16 @@ export const GameContext = createContext<GameContextType | undefined>(
 );
 
 export const GameProvider = ({ children }: { children: React.ReactNode }) => {
-  const [games, setGames] = useState<Game[]>([]); // Add type annotation here
-  const [myGames] = useState<Game[]>([]);
+  const [games, setGames] = useState<Game[]>([]); // Games del API
+
+  //Juegos del usuario
+  const [myGames, setMyGames] = useState<MyGame[]>([]);
   const completedGames = myGames.filter((game) => game.status === "completed");
   const droppedGames = myGames.filter((game) => game.status === "dropped");
   const playingGames = myGames.filter((game) => game.status === "playing");
   const wishlistGames = myGames.filter((game) => game.status === "wish");
+  //atributos del usuario
+  const [hoursPlayed, setHoursPlayed] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +59,9 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     droppedGames,
     playingGames,
     wishlistGames,
+    setMyGames,
+    hoursPlayed,
+    setHoursPlayed,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;
