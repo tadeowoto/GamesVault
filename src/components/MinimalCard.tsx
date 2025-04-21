@@ -33,19 +33,19 @@ export const MinimalCard = ({ image, status }: Props) => {
   };
 
   return (
-    <div className="w-20 h-40 flex flex-col gap-1">
-      <div className="w-full h-11/13">
+    <div className="w-20 h-40 flex flex-col">
+      <div className="w-full h-[85%]">
         <img
           src={image}
           alt="Game image"
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="w-full text-center">
+      <div className="w-full h-[15%] text-center flex items-center justify-center">
         <span
           className={`${getStatusColor().text} ${
             getStatusColor().bg
-          } text-sm rounded-xl px-1 py-0.5 `}
+          } text-sm w-full h-full flex items-center justify-center`}
         >
           {status}
         </span>
