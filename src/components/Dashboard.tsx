@@ -16,7 +16,15 @@ export const Dashboard = () => {
     throw new Error("GamesGridContainer must be used within a GameProvider");
   }
 
-  const { mappedGames, setMyGames, setHoursPlayed, hoursPlayed } = context;
+  const {
+    mappedGames,
+    setMyGames,
+    setHoursPlayed,
+    hoursPlayed,
+    completedGamesCount,
+    playingGamesCount,
+    totalGamesCount,
+  } = context;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenu = () => {
     setIsMenuOpen(true);
@@ -52,6 +60,7 @@ export const Dashboard = () => {
     setMyGames((prev) => [...prev, newGame]);
     setIsMenuOpen(false);
   };
+  console.log(completedGamesCount);
 
   return isMenuOpen ? (
     //TODO COMPONETIZAR EL EL COMPONENTE QUE SE MUESTRA CON EL OPTION
@@ -167,9 +176,18 @@ export const Dashboard = () => {
           Add new game
         </button>
       </header>
-      <GamesStatsDashoard title="Total de Juegos" totalGames={30} />
-      <GamesStatsDashoard title="Juegos completados" />
-      <GamesStatsDashoard title="Jugando Actualmente" />
+      <GamesStatsDashoard
+        title="Total de Juegos"
+        totalGames={totalGamesCount}
+      />
+      <GamesStatsDashoard
+        title="Juegos completados"
+        totalGames={completedGamesCount}
+      />
+      <GamesStatsDashoard
+        title="Jugando Actualmente"
+        totalGames={playingGamesCount}
+      />
       <GamesStatsDashoard title="Tiempo Total" totalTime={hoursPlayed} />
     </div>
   );
