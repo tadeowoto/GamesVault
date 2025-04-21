@@ -13,6 +13,10 @@ interface GameContextType {
   setMyGames: React.Dispatch<React.SetStateAction<MyGame[]>>;
   hoursPlayed: number;
   setHoursPlayed: React.Dispatch<React.SetStateAction<number>>;
+  completedGamesCount: number;
+  playingGamesCount: number;
+  setCompletedGamesCount: React.Dispatch<React.SetStateAction<number>>;
+  setPlayingGamesCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const GameContext = createContext<GameContextType | undefined>(
@@ -23,118 +27,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [games, setGames] = useState<Game[]>([]); // Games del API
 
   //Juegos del usuario
-  const [myGames, setMyGames] = useState<MyGame[]>([
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-    {
-      id: 1,
-      name: "The Witcher 3: Wild Hunt",
-      status: "completed",
-      rating: 9,
-      hours: 100,
-      review: "Me encanto el juego",
-      background_image:
-        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
-    },
-  ]);
+  const [myGames, setMyGames] = useState<MyGame[]>([]);
   console.log(games);
   const completedGames = myGames.filter((game) => game.status === "completed");
   const droppedGames = myGames.filter((game) => game.status === "dropped");
@@ -142,6 +35,8 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const wishlistGames = myGames.filter((game) => game.status === "wish");
   //atributos del usuario
   const [hoursPlayed, setHoursPlayed] = useState<number>(0);
+  const [completedGamesCount, setCompletedGamesCount] = useState<number>(0);
+  const [playingGamesCount, setPlayingGamesCount] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -174,6 +69,10 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     setMyGames,
     hoursPlayed,
     setHoursPlayed,
+    completedGamesCount,
+    playingGamesCount,
+    setCompletedGamesCount,
+    setPlayingGamesCount,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

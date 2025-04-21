@@ -160,7 +160,7 @@ export const Dashboard = () => {
         <h1 className="text-xl text-text-primary mb-2">Dashboard</h1>
         <p className="text-md">Welcome to your games vault</p>
         <button
-          className=" flex  gap-2 py-2 px-4 mt-2 bg-accent-hover rounded-xl"
+          className=" flex  gap-2 py-2 px-4 mt-2 bg-accent-hover rounded-xl mb-3"
           onClick={handleMenu}
         >
           {<PlusCircleIcon className="w-5 h-5" />}
