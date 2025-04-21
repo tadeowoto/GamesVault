@@ -12,13 +12,11 @@ export const List = () => {
   const { myGames } = context;
 
   return (
-    <article className="bg-red-200 w-full min-h-screen p-2">
-      <header className="w-full h-30">
-        <div className="">
-          <h1 className="text-2xl text-text-primary">My Vault</h1>
-        </div>
+    <article className=" w-full min-h-screen p-2 bg-bg-card">
+      <header className="w-full h-10 mb-5">
+        <h1 className="text-2xl text-text-primary">My Vault</h1>
       </header>
-      <div className="w-full bg-accent ">
+      <div className="w-full grid grid-cols-3 place-items-center gap-4">
         {myGames.map((game) => (
           <MinimalCard
             key={game.id}

@@ -23,7 +23,119 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [games, setGames] = useState<Game[]>([]); // Games del API
 
   //Juegos del usuario
-  const [myGames, setMyGames] = useState<MyGame[]>([]);
+  const [myGames, setMyGames] = useState<MyGame[]>([
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+    {
+      id: 1,
+      name: "The Witcher 3: Wild Hunt",
+      status: "completed",
+      rating: 9,
+      hours: 100,
+      review: "Me encanto el juego",
+      background_image:
+        "https://media.rawg.io/media/games/7fa/7fa0b586293c5861ee32490e953a4996.jpg",
+    },
+  ]);
+  console.log(games);
   const completedGames = myGames.filter((game) => game.status === "completed");
   const droppedGames = myGames.filter((game) => game.status === "dropped");
   const playingGames = myGames.filter((game) => game.status === "playing");
