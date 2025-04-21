@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GameContext } from "../context/GamesContext";
+import { MinimalCard } from "./MinimalCard";
 
 export const List = () => {
   const context = useContext(GameContext);
@@ -19,9 +20,11 @@ export const List = () => {
       </header>
       <div className="w-full bg-accent ">
         {myGames.map((game) => (
-          <div key={game.id} className="w-full h-20 bg-red-300">
-            <h1>{game.name}</h1>
-          </div>
+          <MinimalCard
+            key={game.id}
+            image={game.background_image}
+            status={game.status}
+          />
         ))}
       </div>
     </article>
