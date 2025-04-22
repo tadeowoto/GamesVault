@@ -19,6 +19,7 @@ interface GameContextType {
   setPlayingGamesCount: React.Dispatch<React.SetStateAction<number>>;
   totalGamesCount: number;
   setTotalGamesCount: React.Dispatch<React.SetStateAction<number>>;
+  myReviews: MyGame[];
 }
 
 export const GameContext = createContext<GameContextType | undefined>(
@@ -40,6 +41,13 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
   const [totalGamesCount, setTotalGamesCount] = useState<number>(0);
   const [completedGamesCount, setCompletedGamesCount] = useState<number>(0);
   const [playingGamesCount, setPlayingGamesCount] = useState<number>(0);
+
+  const [myReviews, setMyReviews] = useState<MyGame[]>([]); // Reviews del usuario
+
+  useEffect(() => {
+    const reviewedGames = myGames.filter((game) => game.review !== "");
+    setMyReviews(reviewedGames);
+  }, [myGames]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -78,6 +86,7 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
     setTotalGamesCount,
     setCompletedGamesCount,
     setPlayingGamesCount,
+    myReviews,
   };
 
   return <GameContext.Provider value={value}>{children}</GameContext.Provider>;

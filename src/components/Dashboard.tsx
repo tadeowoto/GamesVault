@@ -24,6 +24,9 @@ export const Dashboard = () => {
     completedGamesCount,
     playingGamesCount,
     totalGamesCount,
+    setPlayingGamesCount,
+    setCompletedGamesCount,
+    setTotalGamesCount,
   } = context;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenu = () => {
@@ -49,6 +52,15 @@ export const Dashboard = () => {
     const hours = data.get("hours");
 
     setHoursPlayed((prev) => prev + Number(hours));
+
+    if (status === "completed") {
+      setCompletedGamesCount((prev) => prev + 1);
+      setTotalGamesCount((prev) => prev + 1);
+    } else if (status === "playing") {
+      setPlayingGamesCount((prev) => prev + 1);
+      setTotalGamesCount((prev) => prev + 1);
+    }
+
     const newGame: MyGame = {
       id: game.value,
       name: game.label,
