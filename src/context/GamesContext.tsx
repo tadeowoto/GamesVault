@@ -44,11 +44,27 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [myReviews, setMyReviews] = useState<MyGame[]>([]); // Reviews del usuario
 
+  //actualizo los contadores de juegos
+  useEffect(() => {
+    const completedCount = myGames.filter(
+      (game) => game.status === "completed"
+    ).length;
+    const playingCount = myGames.filter(
+      (game) => game.status === "playing"
+    ).length;
+
+    setCompletedGamesCount(completedCount);
+    setPlayingGamesCount(playingCount);
+    setTotalGamesCount(myGames.length);
+  }, [myGames]);
+
+  //actualizo los juegos que tienen reviews
   useEffect(() => {
     const reviewedGames = myGames.filter((game) => game.review !== "");
     setMyReviews(reviewedGames);
   }, [myGames]);
 
+  //fetch de la data
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetchGameApi();
