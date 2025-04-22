@@ -5,6 +5,7 @@ import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { MyGame } from "../types/types";
 import { status } from "../types/types";
 import { PlusCircleIcon } from "@heroicons/react/16/solid";
+import { MainCard } from "./MainCard";
 
 export const Dashboard = () => {
   //TODO COMPONETIZAR EL DASHBOARD
@@ -27,6 +28,7 @@ export const Dashboard = () => {
     setPlayingGamesCount,
     setCompletedGamesCount,
     setTotalGamesCount,
+    myGames,
   } = context;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenu = () => {
@@ -176,7 +178,7 @@ export const Dashboard = () => {
       </div>
     </div>
   ) : (
-    <div className="w-full min-h-screen bg-bg-card flex flex-col gap-5 items-center">
+    <section className="w-full min-h-screen bg-bg-card flex flex-col gap-5 items-center">
       <header className="w-full h-30 mb-10 flex flex-col items-center justify-center border-gray-600 border-b">
         <h1 className="text-xl text-text-primary mb-2">Dashboard</h1>
         <p className="text-md">Welcome to your games vault</p>
@@ -201,6 +203,18 @@ export const Dashboard = () => {
         totalGames={playingGamesCount}
       />
       <GamesStatsDashoard title="Tiempo Total" totalTime={hoursPlayed} />
-    </div>
+      <section className="w-full  p-2  min-h-screen">
+        <div className="w-full h-fit grid grid-cols-1">
+          {myGames.map((game) => (
+            <MainCard
+              key={game.id}
+              background_image={game.background_image}
+              status={game.status}
+              name={game.name}
+            />
+          ))}
+        </div>
+      </section>
+    </section>
   );
 };
