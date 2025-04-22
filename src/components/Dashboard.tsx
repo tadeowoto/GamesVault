@@ -1,11 +1,10 @@
-import { GamesStatsDashoard } from "./GamesStatsDashoard";
 import { useContext, useState } from "react";
 import { GameContext } from "../context/GamesContext";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { MyGame } from "../types/types";
 import { status } from "../types/types";
 import { PlusCircleIcon } from "@heroicons/react/16/solid";
-import { MainCard } from "./MainCard";
+import { MainDashboard } from "./MainDashboard";
 
 export const Dashboard = () => {
   //TODO COMPONETIZAR EL DASHBOARD
@@ -21,14 +20,9 @@ export const Dashboard = () => {
     mappedGames,
     setMyGames,
     setHoursPlayed,
-    hoursPlayed,
-    completedGamesCount,
-    playingGamesCount,
-    totalGamesCount,
     setPlayingGamesCount,
     setCompletedGamesCount,
     setTotalGamesCount,
-    myGames,
   } = context;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleMenu = () => {
@@ -74,7 +68,6 @@ export const Dashboard = () => {
     setMyGames((prev) => [...prev, newGame]);
     setIsMenuOpen(false);
   };
-  console.log(completedGamesCount);
 
   return isMenuOpen ? (
     //TODO COMPONETIZAR EL EL COMPONENTE QUE SE MUESTRA CON EL OPTION
@@ -190,31 +183,7 @@ export const Dashboard = () => {
           Add new game
         </button>
       </header>
-      <GamesStatsDashoard
-        title="Total de Juegos"
-        totalGames={totalGamesCount}
-      />
-      <GamesStatsDashoard
-        title="Juegos completados"
-        totalGames={completedGamesCount}
-      />
-      <GamesStatsDashoard
-        title="Jugando Actualmente"
-        totalGames={playingGamesCount}
-      />
-      <GamesStatsDashoard title="Tiempo Total" totalTime={hoursPlayed} />
-      <section className="w-full  p-2  min-h-screen">
-        <div className="w-full h-fit grid grid-cols-1">
-          {myGames.map((game) => (
-            <MainCard
-              key={game.id}
-              background_image={game.background_image}
-              status={game.status}
-              name={game.name}
-            />
-          ))}
-        </div>
-      </section>
+      <MainDashboard />
     </section>
   );
 };
