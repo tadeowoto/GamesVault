@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GameContext } from "../context/GamesContext";
 import { MinimalCard } from "./MinimalCard";
+import { motion } from "framer-motion";
 
 export const List = () => {
   const context = useContext(GameContext);
@@ -12,7 +13,13 @@ export const List = () => {
   const { myGames } = context;
 
   return (
-    <article className="w-full min-h-screen p-2 bg-bg-card">
+    <motion.article
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -20 }}
+      transition={{ duration: 0.3 }}
+      className="w-full min-h-screen p-2 bg-bg-card"
+    >
       <header className="w-full h-10 mb-5">
         <h1 className="text-2xl text-text-primary">My Vault</h1>
       </header>
@@ -31,6 +38,6 @@ export const List = () => {
           ))}
         </div>
       )}
-    </article>
+    </motion.article>
   );
 };

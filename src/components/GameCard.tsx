@@ -1,5 +1,6 @@
 import { Screenshot } from "../types/types";
 import { StarIcon } from "@heroicons/react/16/solid";
+import { motion } from "framer-motion";
 type CardProps = {
   background_image: string;
   name: string;
@@ -19,7 +20,13 @@ export const GameCard = ({
   rating,
 }: CardProps) => {
   return (
-    <div className="w-60 h-80  flex flex-col justify-between border border-text-secondary rounded-md">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
+      className="w-60 h-80 flex flex-col justify-between border border-text-secondary rounded-md"
+    >
       <div className="w-full h-7/8 flex flex-col gap-2">
         <img
           src={background_image}
@@ -42,6 +49,6 @@ export const GameCard = ({
           <p>{status}</p>
         </div>
       ) : null}
-    </div>
+    </motion.div>
   );
 };

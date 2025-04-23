@@ -2,6 +2,7 @@ import { GamesStatsDashoard } from "./GamesStatsDashoard";
 import { GameContext } from "../context/GamesContext";
 import { MainCard } from "./MainCard";
 import { useContext } from "react";
+import { motion } from "framer-motion";
 
 export const MainDashboard = () => {
   const context = useContext(GameContext);
@@ -19,7 +20,13 @@ export const MainDashboard = () => {
   } = context;
 
   return (
-    <article className="w-full min-h-screen bg-bg-card flex flex-col gap-5 items-center">
+    <motion.article
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      transition={{ duration: 0.3 }}
+      className="w-full min-h-screen bg-bg-card flex flex-col gap-5 items-center"
+    >
       <GamesStatsDashoard
         title="Total de Juegos"
         totalGames={totalGamesCount}
@@ -45,6 +52,6 @@ export const MainDashboard = () => {
           ))}
         </div>
       </section>
-    </article>
+    </motion.article>
   );
 };

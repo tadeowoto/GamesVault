@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { GameContext } from "../context/GamesContext";
 import { ReviewArticle } from "./ReviewArticle";
+import { motion } from "framer-motion";
 
 export const Reviews = () => {
   const context = useContext(GameContext);
@@ -14,7 +15,12 @@ export const Reviews = () => {
   console.log(typeof myReviews);
 
   return (
-    <section className="w-full min-h-screen bg-bg-card">
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+    >
       <div className="w-full pb-2 border-b border-text-secondary">
         <h1 className="text-2xl text-center text-text-primary">Reviews</h1>
       </div>
@@ -27,6 +33,6 @@ export const Reviews = () => {
           />
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 };
