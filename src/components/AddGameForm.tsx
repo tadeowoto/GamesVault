@@ -68,11 +68,11 @@ export const AddGameForm = ({ setIsMenuOpen }: AddGameFormProps) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full h-full flex flex-col justify-center items-center gap-2"
+      className="w-full max-w-2xl mx-auto h-full flex flex-col justify-center items-center gap-4 px-4 md:px-6 lg:px-8"
     >
       <select
         name="game"
-        className="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 w-full justify-between h-auto py-3"
+        className="w-full md:w-4/5 lg:w-3/4 inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground px-4 h-12"
         onChange={(e) => {
           const selectedGame = JSON.parse(e.target.value);
           setSelectedTitle(selectedGame.label);
@@ -87,9 +87,9 @@ export const AddGameForm = ({ setIsMenuOpen }: AddGameFormProps) => {
           );
         })}
       </select>
-      <div className="w-full h-90 border-b border-accent mb-5">
-        <img src={selectedImage} className="w-full h-10/12 object-cover" />
-        <h1 className="text-center mt-2 text-2xl">{selectedTitle}</h1>
+      <div className="w-full md:w-4/5 lg:w-3/4 h-[300px] md:h-[400px] border-b border-accent mb-5">
+        <img src={selectedImage} className="w-full h-[85%] object-cover rounded-lg" />
+        <h1 className="text-center mt-4 text-xl md:text-2xl">{selectedTitle}</h1>
       </div>
       <div>
         <div className="flex flex-col gap-2">

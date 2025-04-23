@@ -13,7 +13,7 @@ const GamesGridContainer = () => {
 
   return (
     <article className="w-full h-full flex items-center justify-center">
-      <div className="w-full h-fit p-10 grid grid-cols-1 gap-12 place-items-center bg-bg-card border-t border-gray-600 md:grid-cols-2">
+      <div className="w-full h-fit p-4 sm:p-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-12 place-items-center bg-bg-card border-t border-gray-600">
         {mappedGames.map((game) => (
           <GameCard
             key={game.id}

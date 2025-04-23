@@ -25,7 +25,7 @@ export const MainDashboard = () => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
       transition={{ duration: 0.3 }}
-      className="w-full min-h-screen bg-bg-card flex flex-col gap-5 items-center"
+      className="w-full min-h-screen bg-bg-card flex flex-col gap-3 sm:gap-5 items-center p-2 sm:p-4"
     >
       <GamesStatsDashoard
         title="Total de Juegos"

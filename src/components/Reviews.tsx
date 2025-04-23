@@ -20,11 +20,14 @@ export const Reviews = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
+      className="w-full max-w-6xl mx-auto px-4 md:px-6 lg:px-8"
     >
-      <div className="w-full pb-2 border-b border-text-secondary">
-        <h1 className="text-2xl text-center text-text-primary">Reviews</h1>
+      <div className="w-full pb-4 mb-6 border-b border-text-secondary">
+        <h1 className="text-2xl md:text-3xl text-center text-text-primary">
+          Reviews
+        </h1>
       </div>
-      <div className="w-full h-full flex flex-col gap-2">
+      <div className="w-full grid gap-6 md:gap-8">
         {myReviews.map((review) => (
           <ReviewArticle
             key={review.id}

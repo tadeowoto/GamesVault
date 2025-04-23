@@ -25,7 +25,7 @@ export const GameCard = ({
       animate={{ opacity: 1, scale: 1 }}
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className="w-60 h-80 flex flex-col justify-between border border-text-secondary rounded-md"
+      className="w-full sm:w-60 h-80 flex flex-col justify-between border border-text-secondary rounded-md"
     >
       <div className="w-full h-7/8 flex flex-col gap-2">
         <img

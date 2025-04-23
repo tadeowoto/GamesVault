@@ -33,18 +33,18 @@ export const MainCard = ({ background_image, status, name }: Props) => {
   };
 
   return (
-    <div className="w-full h-130  border border-text-secondary rounded-md">
-      <div className="w-full h-8/10">
+    <div className="w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto h-auto border border-text-secondary rounded-md mb-4">
+      <div className="w-full h-[300px] md:h-[400px]">
         <img
           src={background_image}
           alt={name}
-          className="w-full h-full object-cover rounded-md"
+          className="w-full h-full object-cover rounded-t-md"
         />
       </div>
-      <div className="w-full h-2/10  p-3 flex flex-col items-center justify-between">
-        <h1 className="text-xl">{name}</h1>
+      <div className="w-full p-4 flex flex-col items-center justify-between gap-3">
+        <h1 className="text-xl md:text-2xl">{name}</h1>
         <span
-          className={` py-1 px-18 rounded-2xl ${getStatusColor().text} ${
+          className={`py-2 px-6 rounded-2xl ${getStatusColor().text} ${
             getStatusColor().bg
           }`}
         >
