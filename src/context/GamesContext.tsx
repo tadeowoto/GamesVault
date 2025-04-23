@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 import { fetchGameApi } from "../services/fetchApi";
 import { Game } from "../types/types";
 import { MyGame } from "../types/types";
+import { useMemo } from "react";
 
 interface GameContextType {
   mappedGames: Game[];
@@ -31,10 +32,23 @@ export const GameProvider = ({ children }: { children: React.ReactNode }) => {
 
   //Juegos del usuario
   const [myGames, setMyGames] = useState<MyGame[]>([]);
-  const completedGames = myGames.filter((game) => game.status === "completed");
-  const droppedGames = myGames.filter((game) => game.status === "dropped");
-  const playingGames = myGames.filter((game) => game.status === "playing");
-  const wishlistGames = myGames.filter((game) => game.status === "wish");
+  const completedGames = useMemo(
+    () => myGames.filter((game) => game.status === "completed"),
+    [myGames]
+  );
+  const droppedGames = useMemo(
+    () => myGames.filter((game) => game.status === "dropped"),
+    [myGames]
+  );
+  const playingGames = useMemo(
+    () => myGames.filter((game) => game.status === "playing"),
+    [myGames]
+  );
+
+  const wishlistGames = useMemo(
+    () => myGames.filter((game) => game.status === "wish"),
+    [myGames]
+  );
 
   //atributos del usuario
   const [hoursPlayed, setHoursPlayed] = useState<number>(0);
